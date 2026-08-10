@@ -1,0 +1,21 @@
+{
+  "name": "personal-finance-manager",
+  "version": "1.0.0",
+  "description": "Manage personal expenses—both at a high level and in detail—for users.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/m1nhfeb21/Personal-Finance-Manager.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/m1nhfeb21/Personal-Finance-Manager/issues"
+  },
+  "homepage": "https://github.com/m1nhfeb21/Personal-Finance-Manager#readme"
+}
