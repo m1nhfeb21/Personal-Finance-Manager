@@ -47,6 +47,29 @@ export function deleteTransaction(
   id: number,
 ): Transaction[] {
   return transactions.filter((transaction) => {
-    return transaction.id != id;
+    return transaction.id !== id;
   });
+}
+
+// date có dạng YYYY-MM-DD, còn month có dạng YYYY-MM.
+export function filterTransactionsByMonth(
+  transactions: Transaction[],
+  month: string,
+): Transaction[] {
+  return transactions.filter((transaction) => {
+    return transaction.date.startsWith(month);
+  });
+}
+
+// Cộng tổng tiền chi của một danh mục để so sánh với hạn mức.
+export function calculateCategoryExpense(
+  transactions: Transaction[],
+  categoryName: string,
+): number {
+  return transactions.reduce((total, transaction) => {
+    const isCategoryExpense =
+      transaction.type === "expense" && transaction.category === categoryName;
+
+    return isCategoryExpense ? total + transaction.amount : total;
+  }, 0);
 }

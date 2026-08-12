@@ -4,6 +4,9 @@
   "description": "Manage personal expenses—both at a high level and in detail—for users.",
   "main": "index.js",
   "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "typecheck": "tsc --noEmit",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -17,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/m1nhfeb21/Personal-Finance-Manager/issues"
   },
-  "homepage": "https://github.com/m1nhfeb21/Personal-Finance-Manager#readme"
+  "homepage": "https://github.com/m1nhfeb21/Personal-Finance-Manager#readme",
+  "devDependencies": {
+    "vite": "^8.2.1"
+  }
 }

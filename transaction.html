@@ -6,8 +6,8 @@
     <title>Transaction</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   </head>
-  <body class="flex h-screen bg-gray-50">
-    <aside class="flex h-screen w-64 flex-col bg-blue-300 px-5 py-7 text-white">
+  <body class="flex min-h-screen flex-col bg-gray-50 md:h-screen md:flex-row">
+    <aside class="flex w-full flex-col bg-blue-300 px-5 py-7 text-white md:h-screen md:w-64">
       <div class="mb-8 flex items-center gap-3">
         <h1 class="text-xl font-semibold">Personal Finance Management</h1>
       </div>
@@ -54,7 +54,7 @@
       </nav>
     </aside>
 
-    <main class="flex-1 overflow-y-auto px-8 py-8 lg:px-12">
+    <main class="flex-1 overflow-y-auto px-4 py-8 md:px-8 lg:px-12">
       <!--Tiêu đề trang-->
       <header class="mb-8">
         <div class="flex items-center gap-4">
@@ -73,6 +73,17 @@
           </div>
         </div>
       </header>
+
+      <div class="mb-6 flex justify-end">
+        <label class="text-sm font-medium text-slate-600">
+          Lọc lịch sử theo tháng
+          <input
+            id="month-picker"
+            type="month"
+            class="ml-2 rounded-lg border border-slate-200 bg-white px-3 py-2"
+          />
+        </label>
+      </div>
 
       <section
         class="rounded-3xl border border-sky-100 bg-gradient-to-br from-white to-sky-50/40 p-8 shadow-xl shadow-slate-200/50"
@@ -137,10 +148,7 @@
                 id="category"
                 class="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-slate-700 outline-none transition-all duration-300 focus:border-sky-400 focus:ring-4 focus:ring-sky-100"
               >
-                <option value="Ăn uống">Ăn uống</option>
-                <option value="Di chuyển">Di chuyển</option>
-                <option value="Mua sắm">Mua sắm</option>
-                <option value="Giải trí">Giải trí</option>
+                <option value="">Chọn danh mục</option>
               </select>
             </div>
 
@@ -204,7 +212,7 @@
           Lịch sử giao dịch
         </h2>
         <div
-          class="overflow-hidden rounded-2xl border border-slate-200 bg-white"
+          class="overflow-x-auto rounded-2xl border border-slate-200 bg-white"
         >
           <table class="w-full">
             <thead class="bg-sky-50">
