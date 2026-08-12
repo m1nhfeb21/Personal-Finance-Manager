@@ -32,39 +32,6 @@ npm run build
 - Dữ liệu mẫu được tạo khi lần đầu mở ứng dụng.
 - Dữ liệu giao dịch được lưu thành các key riêng theo tháng trong localStorage.
 
-## Luồng xử lý cần nhớ khi báo cáo
-
-Mỗi thao tác đều đi theo một luồng chung:
-
-```text
-User thao tác
-→ cập nhật mảng trong bộ nhớ
-→ save vào localStorage
-→ render lại giao diện
-```
-
-Ví dụ thêm giao dịch:
-
-```text
-submit form
-→ tạo newTransaction
-→ addTransaction()
-→ saveTransactions()
-→ refreshTransactionUI()
-```
-
-Ví dụ sửa category:
-
-```text
-bấm Sửa
-→ lấy id từ data-id
-→ find() category tương ứng
-→ đưa dữ liệu cũ lên form
-→ submit gọi updateCategory()
-→ saveCategories()
-→ render lại
-```
-
 ## Vai trò từng file
 
 - `type.ts`: định nghĩa cấu trúc `Transaction` và `Category`.
