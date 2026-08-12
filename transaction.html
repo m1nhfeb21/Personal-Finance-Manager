@@ -18,7 +18,7 @@
           <li>
             <a
               href="index.html"
-              class="flex items-center gap-3 rounded-xl px-4 py-3 text-xm text-slate-600 transition hover:bg-sky-100 hover:text-teal-700"
+              class="flex items-center gap-3 rounded-xl px-4 py-3 text-sm text-slate-600 transition hover:bg-sky-100 hover:text-teal-700"
             >
               <span>Tổng quan</span>
             </a>
@@ -27,7 +27,7 @@
           <li>
             <a
               href="./transaction.html"
-              class="flex items-center gap-3 rounded-xl px-4 py-3 text-xm text-slate-600 transition hover:bg-sky-100 hover:text-teal-700"
+              class="flex items-center gap-3 rounded-xl px-4 py-3 text-sm text-slate-600 transition hover:bg-sky-100 hover:text-teal-700"
             >
               <span>Giao dịch</span>
             </a>
@@ -36,7 +36,7 @@
           <li>
             <a
               href="./category.html"
-              class="flex items-center gap-3 rounded-xl px-4 py-3 text-xm text-slate-600 transition hover:bg-sky-100 hover:text-teal-700"
+              class="flex items-center gap-3 rounded-xl px-4 py-3 text-sm text-slate-600 transition hover:bg-sky-100 hover:text-teal-700"
             >
               <span>Danh mục</span>
             </a>
@@ -45,7 +45,7 @@
           <li>
             <a
               href="./balance.html"
-              class="flex items-center gap-3 rounded-xl px-4 py-3 text-xm text-slate-600 transition hover:bg-sky-100 hover:text-teal-700"
+              class="flex items-center gap-3 rounded-xl px-4 py-3 text-sm text-slate-600 transition hover:bg-sky-100 hover:text-teal-700"
             >
               <span>Ngân sách</span>
             </a>
@@ -67,7 +67,7 @@
               Thêm giao dịch
             </h1>
 
-            <p ckass="mt-1 text-sm text-plate-400">
+            <p class="mt-1 text-sm text-plate-400">
               Ghi chép khoản thu hoặc chi
             </p>
           </div>
@@ -82,222 +82,145 @@
           <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
             <!-- Số tiền -->
             <div>
+              <label
+                for="amount"
+                class="mb-2 block text-sm font-medium text-slate-600"
+              >
+                Số tiền
+              </label>
+
+              <div class="relative">
+                <span
+                  class="absolute left-4 top-1/2 -translate-y-1/2 font-semibold text-slate-400"
+                >
+                  đ
+                </span>
+
+                <input
+                  id="amount"
+                  type="number"
+                  placeholder="Nhập số tiền"
+                  required
+                  class="w-full rounded-xl border border-slate-200 bg-white py-3 pl-10 pr-4 text-slate-700 outline-none transition-all duration-300 placeholder:text-slate-300 focus:border-sky-400 focus:ring-4 focus:ring-sky-100"
+                />
+              </div>
+            </div>
+
+            <!-- Loại giao dịch -->
+            <div>
+              <label
+                for="transaction-type"
+                class="mb-2 block text-sm font-medium text-slate-600"
+              >
+                Loại giao dịch
+              </label>
+
+              <select
+                id="transaction-type"
+                class="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-slate-700 outline-none transition-all duration-300 focus:border-sky-400 focus:ring-4 focus:ring-sky-100"
+              >
+                <option value="income">Thu</option>
+                <option value="expense">Chi</option>
+              </select>
+            </div>
+
+            <!-- Danh mục -->
+            <div>
+              <label
+                for="category"
+                class="mb-2 block text-sm font-medium text-slate-600"
+              >
+                Danh mục
+              </label>
+
+              <select
+                id="category"
+                class="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-slate-700 outline-none transition-all duration-300 focus:border-sky-400 focus:ring-4 focus:ring-sky-100"
+              >
+                <option value="Ăn uống">Ăn uống</option>
+                <option value="Di chuyển">Di chuyển</option>
+                <option value="Mua sắm">Mua sắm</option>
+                <option value="Giải trí">Giải trí</option>
+              </select>
+            </div>
+
+            <!-- Ngày -->
+            <div>
+              <label
+                for="date"
+                class="mb-2 block text-sm font-medium text-slate-600"
+              >
+                Ngày giao dịch
+              </label>
+
+              <input
+                id="date"
+                type="date"
+                required
+                class="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-slate-700 outline-none transition-all duration-300 focus:border-sky-400 focus:ring-4 focus:ring-sky-100"
+              />
+            </div>
+          </div>
+
+          <!-- Ghi chú: chiếm nguyên hàng -->
+          <div class="mt-6">
             <label
-              for="amount"
+              for="note"
               class="mb-2 block text-sm font-medium text-slate-600"
             >
-            Số tiền
+              Ghi chú
+              <span class="font-normal text-slate-400"> (tùy chọn) </span>
             </label>
 
-          <div class="relative">
-            <span
-             class="absolute left-4 top-1/2 -translate-y-1/2
-               font-semibold text-slate-400"
+            <input
+              id="note"
+              type="text"
+              placeholder="Ví dụ: Ăn sáng, lương tháng, đi chợ..."
+              class="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-slate-700 outline-none transition-all duration-300 placeholder:text-slate-300 focus:border-sky-400 focus:ring-4 focus:ring-sky-100"
+            />
+          </div>
+
+          <!-- Các nút -->
+          <div class="mt-8 flex justify-end gap-3">
+            <button
+              type="reset"
+              class="rounded-xl border border-slate-200 bg-white px-6 py-3 font-medium text-slate-500 transition-all duration-300 hover:-translate-y-1 hover:border-sky-200 hover:bg-sky-50 hover:text-sky-600"
             >
-        đ
-          </span>
+              Đặt lại
+            </button>
 
-      <input
-        id="amount"
-        type="number"
-        placeholder="Nhập số tiền"
-        required
-        class="w-full rounded-xl
-               border border-slate-200
-               bg-white
-               py-3 pl-10 pr-4
-               text-slate-700
-               outline-none
-               transition-all duration-300
-               placeholder:text-slate-300
-               focus:border-sky-400
-               focus:ring-4
-               focus:ring-sky-100"
-      />
-    </div>
-  </div>
-
-           <!-- Loại giao dịch -->
-        <div>
-          <label
-            for="transaction-type"
-            class="mb-2 block text-sm font-medium text-slate-600"
-          >
-            Loại giao dịch
-          </label>
-
-          <select
-            id="transaction-type"
-            class="w-full rounded-xl
-                   border border-slate-200
-                   bg-white
-                   px-4 py-3
-                   text-slate-700
-                   outline-none
-                   transition-all duration-300
-                   focus:border-sky-400
-                   focus:ring-4
-                   focus:ring-sky-100"
-          >
-            <option value="income">Thu</option>
-            <option value="expense">Chi</option>
-          </select>
-        </div>
-
-
-        <!-- Danh mục -->
-        <div>
-          <label
-            for="category"
-            class="mb-2 block text-sm font-medium text-slate-600"
-          >
-            Danh mục
-          </label>
-
-          <select
-            id="category"
-            class="w-full rounded-xl
-                   border border-slate-200
-                   bg-white
-                   px-4 py-3
-                   text-slate-700
-                   outline-none
-                   transition-all duration-300
-                   focus:border-sky-400
-                   focus:ring-4
-                   focus:ring-sky-100"
-          >
-            <option value="Ăn uống">Ăn uống</option>
-            <option value="Di chuyển">Di chuyển</option>
-            <option value="Mua sắm">Mua sắm</option>
-            <option value="Giải trí">Giải trí</option>
-          </select>
-        </div>
-
-
-        <!-- Ngày -->
-        <div>
-          <label
-            for="date"
-            class="mb-2 block text-sm font-medium text-slate-600"
-          >
-            Ngày giao dịch
-          </label>
-
-          <input
-            id="date"
-            type="date"
-            required
-            class="w-full rounded-xl
-                   border border-slate-200
-                   bg-white
-                   px-4 py-3
-                   text-slate-700
-                   outline-none
-                   transition-all duration-300
-                   focus:border-sky-400
-                   focus:ring-4
-                   focus:ring-sky-100"
-          />
-        </div>
-
-      </div>
-
-
-      <!-- Ghi chú: chiếm nguyên hàng -->
-      <div class="mt-6">
-
-        <label
-          for="note"
-          class="mb-2 block text-sm font-medium text-slate-600"
-        >
-          Ghi chú
-          <span class="font-normal text-slate-400">
-            (tùy chọn)
-          </span>
-        </label>
-
-        <input
-          id="note"
-          type="text"
-          placeholder="Ví dụ: Ăn sáng, lương tháng, đi chợ..."
-          class="w-full rounded-xl
-                 border border-slate-200
-                 bg-white
-                 px-4 py-3
-                 text-slate-700
-                 outline-none
-                 transition-all duration-300
-                 placeholder:text-slate-300
-                 focus:border-sky-400
-                 focus:ring-4
-                 focus:ring-sky-100"
-        />
-
-      </div>
-
-
-      <!-- Các nút -->
-      <div class="mt-8 flex justify-end gap-3">
-
-        <button
-          type="reset"
-          class="rounded-xl
-                 border border-slate-200
-                 bg-white
-                 px-6 py-3
-                 font-medium text-slate-500
-                 transition-all duration-300
-                 hover:-translate-y-1
-                 hover:border-sky-200
-                 hover:bg-sky-50
-                 hover:text-sky-600"
-        >
-          Đặt lại
-        </button>
-
-
-       <button
-  type="submit"
-  class="
-    rounded-xl
-    bg-gradient-to-r from-sky-600 to-blue-700
-    px-6 py-3
-    font-semibold text-white
-    shadow-lg shadow-blue-200/60
-    transition-all duration-300
-    hover:-translate-y-1
-    hover:from-sky-700
-    hover:to-blue-800
-    hover:shadow-xl
-    active:translate-y-0
-  "
->
-  + Thêm giao dịch
-</button>
-
-      </div>
-
-    </form>
-
-  </section>
-
-
-  <!-- Kết quả từ ui.ts -->
-  <div
-    class="mt-6 rounded-2xl
-           border border-teal-100
-           bg-teal-50/70
-           px-5 py-4"
-  >
-    <p
-      id="result"
-      class="text-sm font-medium text-teal-700"
-    ></p>
-  </div>
-
-
+            <button
+              type="submit"
+              class="rounded-xl bg-gradient-to-r from-sky-600 to-blue-700 px-6 py-3 font-semibold text-white shadow-lg shadow-blue-200/60 transition-all duration-300 hover:-translate-y-1 hover:from-sky-700 hover:to-blue-800 hover:shadow-xl active:translate-y-0"
+            >
+              + Thêm giao dịch
+            </button>
+          </div>
         </form>
+      </section>
+
+      <section class="mt-8">
+        <h2 class="mb-4 text-xl font-semibold text-slate-700">
+          Lịch sử giao dịch
+        </h2>
+        <div
+          class="overflow-hidden rounded-2xl border border-slate-200 bg-white"
+        >
+          <table class="w-full">
+            <thead class="bg-sky-50">
+              <tr class="text-left text-sm text-slate-500">
+                <th class="px-5 py-4">Ngày</th>
+                <th class="px-5 py-4">Loại giao dịch</th>
+                <th class="px-5 py-4">Danh mục</th>
+                <th class="px-5 py-4">Ghi chú</th>
+                <th class="px-5 py-4">Số tiền</th>
+                <th class="px-5 py-4">Thao tác</th>
+              </tr>
+            </thead>
+
+            <tbody id="transaction-list"></tbody>
+          </table>
+        </div>
       </section>
     </main>
 

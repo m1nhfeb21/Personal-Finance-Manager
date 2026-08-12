@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form id="category-form">
+      <div>
+        <label for="category-name"> Tên danh mục </label>
+
+        <input
+          id="category-name"
+          type="text"
+          placeholder="Ví dụ: Ăn uống"
+          required
+        />
+      </div>
+
+      <div>
+        <label for="category-limit"> Hạn mức </label>
+
+        <input
+          id="category-limit"
+          type="number"
+          placeholder="Ví dụ: 2000000"
+          required
+        />
+      </div>
+
+      <button type="submit">+ Thêm danh mục</button>
+    </form>
+    <section class="mt-8">
+      <h2>Danh sách danh mục</h2>
+
+      <table class="w-full">
+        <thead>
+          <tr>
+            <th>Tên danh mục</th>
+            <th>Hạn mức</th>
+            <th>Thao tác</th>
+          </tr>
+        </thead>
+
+        <tbody id="category-list"></tbody>
+      </table>
+    </section>
+    <script type="module" src="./dist/app.js"></script>
+  </body>
+</html>
