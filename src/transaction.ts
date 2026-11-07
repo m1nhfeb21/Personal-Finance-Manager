@@ -51,7 +51,7 @@ export function deleteTransaction(
   });
 }
 
-// date có dạng YYYY-MM-DD, còn month có dạng YYYY-MM.
+// A transaction date uses YYYY-MM-DD, while the month filter uses YYYY-MM.
 export function filterTransactionsByMonth(
   transactions: Transaction[],
   month: string,
@@ -61,7 +61,7 @@ export function filterTransactionsByMonth(
   });
 }
 
-// Cộng tổng tiền chi của một danh mục để so sánh với hạn mức.
+// Calculate category spending so it can be compared with the category limit.
 export function calculateCategoryExpense(
   transactions: Transaction[],
   categoryName: string,

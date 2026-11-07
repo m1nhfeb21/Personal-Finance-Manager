@@ -26,7 +26,7 @@ import { addCategory, deleteCategory, updateCategory } from "./category.js";
 
 const SELECTED_MONTH_KEY = "selected-month";
 
-//load data
+// Load data from localStorage when the application starts.
 let transactions: Transaction[] = loadTransactions();
 let categories: Category[] = loadCategories();
 
@@ -155,7 +155,7 @@ if (categoryForm && categoryNameInput && categoryLimitInput) {
       const oldName = categoryToEdit.name;
       updateCategory(categories, editingCategoryId, name, limit);
 
-      // Khi đổi tên category, cập nhật các giao dịch cũ đang dùng tên đó.
+      // Keep existing transactions synchronized when a category is renamed.
       transactions.forEach((transaction) => {
         if (transaction.category === oldName) {
           transaction.category = name;
@@ -230,7 +230,7 @@ if (form) {
     addTransaction(transactions, newTransaction);
     saveTransactions(transactions);
 
-    // Sau khi thêm, tự chuyển bộ lọc sang tháng của giao dịch vừa nhập.
+    // Switch the filter to the month of the newly added transaction.
     selectedMonth = date.slice(0, 7);
     localStorage.setItem(SELECTED_MONTH_KEY, selectedMonth);
     if (monthPicker) monthPicker.value = selectedMonth;
@@ -283,7 +283,7 @@ if (categoryList) {
     });
     if (!categoryToDelete) return;
 
-    // Không cho xóa nếu transaction vẫn đang tham chiếu tới category này.
+    // Prevent deletion while a transaction still references this category.
     const isCategoryInUse = transactions.some((transaction) => {
       return transaction.category === categoryToDelete.name;
     });

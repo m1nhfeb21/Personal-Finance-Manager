@@ -89,7 +89,7 @@ export function saveTransactions(transactions: Transaction[]): void {
   );
   const newMonths = [...groupedTransactions.keys()];
 
-  // Xóa key của tháng không còn giao dịch sau thao tác delete.
+  // Remove storage keys for months that no longer contain transactions.
   oldMonths.forEach((month) => {
     if (!groupedTransactions.has(month)) {
       localStorage.removeItem(`${TRANSACTION_PREFIX}${month}`);
@@ -119,7 +119,7 @@ export function loadTransactions(): Transaction[] {
     });
   }
 
-  // Giữ lại dữ liệu đã làm trước đây rồi tự chuyển sang cách lưu theo tháng.
+  // Preserve legacy data and migrate it to month-based storage automatically.
   const legacyTransactions = parseArray<Transaction>(
     localStorage.getItem(LEGACY_TRANSACTION_KEY),
   );

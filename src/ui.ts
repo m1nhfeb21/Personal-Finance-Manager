@@ -126,7 +126,7 @@ export function renderCategories(
   });
 }
 
-// Tạo option từ mảng categories thay vì viết cứng trong HTML.
+// Build select options from category data instead of hard-coding them in HTML.
 export function renderCategoryOptions(categories: Category[]): void {
   const categorySelect = document.getElementById(
     "category",

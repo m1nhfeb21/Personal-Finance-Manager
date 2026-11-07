@@ -2,8 +2,8 @@ import { resolve } from "node:path";
 import { defineConfig } from "vite";
 
 export default defineConfig({
-  // TypeScript hiện biên dịch vào dist/, nên Vite xuất bản production sang build/
-  // để không xóa các file JavaScript mà các trang HTML đang sử dụng.
+  // TypeScript compiles to dist/, so Vite outputs production files to build/
+  // without removing the JavaScript files currently referenced by the HTML pages.
   build: {
     outDir: "build",
     rollupOptions: {
